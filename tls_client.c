@@ -37,7 +37,7 @@ static int rdm_connect(struct sockaddr_tipc *sa)
 		exit(1);
 	}
 
-	if(connect(sd, (struct sockaddr *) sa, sizeof(sa))) {
+	if(connect(sd, (struct sockaddr *) sa, sizeof(*sa))) {
 		perror("connect");
 		exit(1);
 	}
