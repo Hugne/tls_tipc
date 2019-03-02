@@ -10,9 +10,9 @@ cert:
 	certtool --generate-privkey --outfile key.pem
 	certtool --generate-self-signed --load-privkey key.pem --template template.txt --outfile cert.pem
 tls_server: tls_server.o ${LOBJS}
-	gcc $(CFLAGS) $(LDFLAGS) tls_server.c -lm -o tls_server
+	gcc $(CFLAGS) $(LDFLAGS) tls_server.c -lm -lgnutls -o tls_server
 
 tls_client: tls_client.o
-	gcc $(CFLAGS) $(LDFLAGS) tls_client.c -o tls_client
+	gcc $(CFLAGS) $(LDFLAGS) tls_client.c -lgnutls -o tls_client
 
 
